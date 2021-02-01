@@ -1,5 +1,4 @@
 import { fetchUtils } from "react-admin";
-//import { stringify } from "query-string";
 
 const apiUrl = "http://localhost:3001";
 const httpClient = fetchUtils.fetchJson;
@@ -16,7 +15,6 @@ export default {
 
   getOne: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
-      //data: json,
       data: { ...params.data, id: { json }.id },
     })),
 
@@ -32,10 +30,10 @@ export default {
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: "PUT",
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ data: json })),
+    }).then(({ json }) => ({ data: { ...params.data }, id: { json }.id })),
 
   delete: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: "DELETE",
-    }).then(({ json }) => ({ data: json })),
+    }).then(({ json }) => ({ data: { ...params.data }, id: { json }.id })),
 };
