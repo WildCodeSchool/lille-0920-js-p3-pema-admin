@@ -7,7 +7,8 @@ const TimelineEdit = props => {
       <SimpleForm>
         <TextInput disabled source="id" />
         <TextInput source="title" />
-        <TextInput multiline source="paragraphe" />
+        <TextInput multiline source="first_paragraph" />
+        <TextInput multiline source="second_paragraph" />
       </SimpleForm>
     </Edit>
   );

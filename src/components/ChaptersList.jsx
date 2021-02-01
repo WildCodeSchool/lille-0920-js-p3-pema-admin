@@ -13,9 +13,10 @@ const TimelineList = props => {
       <Datagrid>
         <TextField source="id" />
         <TextField source="title" />
-        <TextField source="paragraph" />
-        <EditButton basePath="/timeline" />
-        <DeleteButton label="Delete" basePath="/timeline" />
+        <TextField source="first_paragraph" />
+        <TextField source="second_paragraph" />
+        <EditButton basePath="/chapters" />
+        <DeleteButton label="Delete" basePath="/chapters" />
       </Datagrid>
     </List>
   );
