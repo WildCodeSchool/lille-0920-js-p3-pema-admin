@@ -12,6 +12,9 @@ const LoggedIn = () => {
       <Link to="/profile" className="nav-link">
         <i className="fas fa-user-lock"></i> Profile
       </Link>
+      <Link to="/register" className="nav-link">
+        <i className="fas fa-user-plus"></i> Register
+      </Link>
       <Link
         to="#"
         className="nav-link"
@@ -28,9 +31,6 @@ const LoggedOut = () => {
     <>
       <Link to="/login" className="nav-link">
         <i className="fas fa-sign-in-alt"></i> Login
-      </Link>
-      <Link to="/register" className="nav-link">
-        <i className="fas fa-user-plus"></i> Register
       </Link>
     </>
   );

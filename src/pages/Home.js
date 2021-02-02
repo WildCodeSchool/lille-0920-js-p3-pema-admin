@@ -11,13 +11,12 @@ const Home = () => {
       </p>
 
       <p>
-        Code:
         <a
-          href="https://github.com/NatePad/SERN-Auth-Template"
+          href="https://www.lavoixdunord.fr/706940/article/2020-02-07/une-dizaine-de-voitures-rayees-dans-le-centre-ville-de-calais-trois-adolescents?referer=%2Farchives%2Frecherche%3Fdatefilter%3Dlastyear%26sort%3Ddate%2520desc%26word%3Dvoiture%2520ray%25C3%25A9es"
           target="_blank"
           rel="noreferrer"
         >
-          &nbsp;GitHub
+          &nbsp;Faits divers
         </a>
       </p>
       
