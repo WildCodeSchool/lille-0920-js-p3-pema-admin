@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+
+import {
+  AUTH_CHECK_COMPLETE,
+  LOGIN
+} from './utils/actions';
+
+import { useStoreContext } from './utils/GlobalState';
+
+import API from './utils/API';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Navbar from './AuthComponents/Navbar';
+import PasswordReset from './pages/PasswordReset';
+import Profile from './pages/Profile';
+import dashboard from './pages/dashboard';
+import ProtectedRoute from './AuthComponents/ProtectedRoute';
+import Register from './pages/Register';
+
+const App = () => {
+  // eslint-disable-next-line
+  const [state, dispatch] = useStoreContext();
+
+  const cookieLogin = async () => {
+    if (document.cookie.includes('user=')) {
+      const res = await API.loginCookie();
+      if (res.data.username) {
+        dispatch({
+          action: LOGIN,
+          data: res.data
+        });
+      }
+    }
+
+    dispatch({
+      action: AUTH_CHECK_COMPLETE
+    });
+  };
+
+  useEffect(() => {
+    cookieLogin();
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+        <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/dashboard" component={dashboard} />
+        <Route exact path="/pass-reset/:resetCode" component={PasswordReset} />
+        <Route component={Home} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;

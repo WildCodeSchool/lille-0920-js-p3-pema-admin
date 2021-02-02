@@ -1,0 +1,59 @@
+'use strict';
+
+const router = require('express').Router();
+
+router.post('/create', (req, res) => {
+    const post = req.body.post;
+  
+    db.query(
+      "INSERT INTO posts (post) VALUES (?)",
+      [post],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send("Values Inserted");
+        }
+      }
+    );
+  });
+  
+  router.get("/getAll", (req, res) => {
+    db.query("SELECT * FROM posts", (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
+  });
+  
+  router.put("/update", (req, res) => {
+    const id = req.body.id;
+    const post = req.body.post;
+    db.query(
+      "UPDATE posts SET post = ? WHERE id = ?",
+      [post, id],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(result);
+        }
+      }
+    );
+  });
+  
+  router.delete("/delete/:id", (req, res) => {
+    const id = req.params.id;
+    db.query("DELETE FROM post WHERE id = ?", id, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
+  });
+
+
+module.exports = router;
