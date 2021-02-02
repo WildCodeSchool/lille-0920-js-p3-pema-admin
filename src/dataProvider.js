@@ -1,10 +1,12 @@
 import { fetchUtils } from "react-admin";
+import { api } from "./conf";
 
-const apiUrl = "http://localhost:3001/admin";
+const apiUrl = `${api.defaults.baseURL}/admin`;
 const httpClient = fetchUtils.fetchJson;
 
 export default {
   getList: (resource, params) => {
+    console.log(api.defaults.baseURL);
     const url = `${apiUrl}/${resource}`;
 
     return httpClient(url).then(({ headers, json }) => ({
