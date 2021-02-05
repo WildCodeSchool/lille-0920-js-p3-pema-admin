@@ -6,7 +6,6 @@ const httpClient = fetchUtils.fetchJson;
 
 export default {
   getList: (resource, params) => {
-    console.log(api.defaults.baseURL);
     const url = `${apiUrl}/${resource}`;
 
     return httpClient(url).then(({ headers, json }) => ({
