@@ -7,7 +7,7 @@ import {
   DeleteButton,
 } from "react-admin";
 
-const TimelineList = props => {
+const ChaptersList = props => {
   return (
     <List {...props}>
       <Datagrid>
@@ -22,4 +22,4 @@ const TimelineList = props => {
   );
 };
 
-export default TimelineList;
+export default ChaptersList;
