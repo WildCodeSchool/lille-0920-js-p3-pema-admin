@@ -3,10 +3,10 @@ import { api } from "./conf";
 
 const apiUrl = `${api.defaults.baseURL}/admin`;
 const httpClient = fetchUtils.fetchJson;
+console.log(api.defaults);
 
 export default {
   getList: (resource, params) => {
-    console.log(api.defaults.baseURL);
     const url = `${apiUrl}/${resource}`;
 
     return httpClient(url).then(({ headers, json }) => ({
