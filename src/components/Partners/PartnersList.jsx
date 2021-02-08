@@ -5,15 +5,16 @@ import {
   List,
   EditButton,
   DeleteButton,
+  ImageField,
 } from "react-admin";
 
-const PartnersList = (props) => {
+const PartnersList = props => {
   return (
     <List {...props}>
       <Datagrid>
         <TextField source="id" />
         <TextField source="name" />
-        <TextField source="url" />
+        <ImageField source="url" />
         <EditButton basePath="/partners" />
         <DeleteButton label="Delete" basePath="/partners" />
       </Datagrid>
