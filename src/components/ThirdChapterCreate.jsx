@@ -6,7 +6,7 @@ const ThirdChapterCreate = (props) => {
     <Create title="Ajouter un paragraphe" {...props}>
       <SimpleForm>
         <TextInput source="title" />
-        <TextInput source="paragraphe" />
+        <TextInput source="paragraph" />
       </SimpleForm>
     </Create>
   );
