@@ -10,6 +10,9 @@ import ChaptersCreate from "./components/Chapters/ChaptersCreate";
 import ClientsList from "./components/Clients/ClientsList";
 import ClientsEdit from "./components/Clients/ClientsEdit";
 import ClientsCreate from "./components/Clients/ClientsCreate";
+import ThirdChapterList from "./components/ThirdChapterList";
+import ThirdChapterEdit from "./components/ThirdChapterEdit";
+import ThirdChapterCreate from "./components/ThirdChapterCreate";
 
 const App = () => {
   return (
@@ -20,6 +23,12 @@ const App = () => {
         list={ChaptersList}
         edit={ChaptersEdit}
         create={ChaptersCreate}
+      />
+      <Resource
+        name="thirdchapters"
+        list={ThirdChapterList}
+        edit={ThirdChapterEdit}
+        create={ThirdChapterCreate}
       />
       <Resource
         name="clients"
