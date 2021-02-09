@@ -1,5 +1,6 @@
 import React from "react";
 import { Admin, Resource } from "react-admin";
+
 import ChaptersCreate from "./components/Chapters/ChaptersCreate";
 import ChaptersEdit from "./components/Chapters/ChaptersEdit";
 import ChaptersList from "./components/Chapters/ChaptersList";
@@ -12,16 +13,17 @@ import PartnersList from "./components/Partners/PartnersList";
 import TestimoniesCreate from "./components/Testimonies/TestimoniesCreate";
 import TestimoniesEdit from "./components/Testimonies/TestimoniesEdit";
 import TestimoniesList from "./components/Testimonies/TestimoniesList";
-import ThirdChapterCreate from "./components/ThirdChapterCreate";
-import ThirdChapterEdit from "./components/ThirdChapterEdit";
-import ThirdChapterList from "./components/ThirdChapterList";
+import ThirdChapterCreate from "./components/ThirdChapter/ThirdChapterCreate";
+import ThirdChapterEdit from "./components/ThirdChapter/ThirdChapterEdit";
+import ThirdChapterList from "./components/ThirdChapter/ThirdChapterList";
 import TimelineEdit from "./components/Timeline/TimelineEdit";
 import TimelineList from "./components/Timeline/TimelineList";
 import dataProvider from "./dataProvider";
+import authProvider from "./authProvider";
 
 const App = () => {
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin dataProvider={dataProvider} authProvider={authProvider}>
       <Resource name="timeline" list={TimelineList} edit={TimelineEdit} />
       <Resource
         name="chapters"
