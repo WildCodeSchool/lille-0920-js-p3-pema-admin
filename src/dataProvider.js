@@ -1,7 +1,7 @@
 import { fetchUtils } from "react-admin";
 import { api } from "./conf";
 
-const apiUrl = `${api.defaults.baseURL}/admin`;
+const apiUrl = `${api.defaults.baseURL}`;
 const httpClient = fetchUtils.fetchJson;
 
 export default {
