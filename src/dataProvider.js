@@ -3,7 +3,6 @@ import { api } from "./conf";
 
 const apiUrl = `${api.defaults.baseURL}/admin`;
 const httpClient = fetchUtils.fetchJson;
-console.log(api.defaults);
 
 export default {
   getList: (resource, params) => {
