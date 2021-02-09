@@ -1,4 +1,6 @@
 import axios from "axios";
+import { api } from "./conf";
+
 export default {
   // authentication
   login: async params => {
@@ -8,7 +10,7 @@ export default {
         password: params.password,
       };
       const { data } = await axios.post(
-        "http://localhost:3001/auth/login",
+        `${api.defaults.baseURL}/auth/login`,
         formData
       );
       localStorage.setItem("token", data.token);
